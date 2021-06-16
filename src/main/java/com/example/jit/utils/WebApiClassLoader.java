@@ -4,7 +4,6 @@ package com.example.jit.utils;
 import com.example.jit.config.PathConfig;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -75,7 +74,8 @@ public class WebApiClassLoader extends ClassLoader {
         if (path.contains(PathConfig.EXT_JAVA_DIR)) {
             String line = readFirstLine(path);
             line = line.trim();
-            final String[] split = path.split(File.separator);
+            String separator = System.getProperty("os.name").toLowerCase().contains("win") ? "\\\\" : "/";
+            final String[] split = path.split(separator);
             String last = split[split.length - 1];
             String[] split1 = last.split("\\.");
             String suffix = split1[0];
