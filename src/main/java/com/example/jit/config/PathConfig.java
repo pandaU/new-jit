@@ -13,7 +13,7 @@ public class PathConfig {
     /**
      * EXT_JAVA_DIR
      */
-    public final static String EXT_JAVA_DIR="/usr/local/src/jitClass/";
+    public final static String EXT_JAVA_DIR= System.getProperty("os.name").toLowerCase().contains("win") ?  "E:\\jitClass\\" : "/usr/local/src/jitClass/";
 
     /**
      * EXT_JAVA_LIB
