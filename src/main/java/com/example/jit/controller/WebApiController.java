@@ -165,7 +165,6 @@ public class WebApiController {
      */
     private static Boolean compiler(String javaAbsolutePath) {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        System.out.println(compiler);
         int run = compiler.run(null, null, null, "-encoding", "UTF-8", "-extdirs", PathConfig.EXT_JAVA_LIB, javaAbsolutePath);
         return run == 0;
     }
