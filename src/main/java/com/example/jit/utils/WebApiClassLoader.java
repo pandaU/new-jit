@@ -62,8 +62,10 @@ public class WebApiClassLoader extends ClassLoader {
     public static String readFirstLine(String path){
         String firstLine = null;
         try {
-            BufferedReader bf = new BufferedReader(new FileReader(path));
+            FileReader reader = new FileReader(path);
+            BufferedReader bf = new BufferedReader(reader);
             firstLine = bf.readLine();
+            reader.close();
             bf.close();
         } catch (IOException e) {
         }
